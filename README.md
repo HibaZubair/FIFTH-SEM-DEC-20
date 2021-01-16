@@ -1,5 +1,5 @@
 # FIFTH-SEM-DEC-20
-courses include
+Courses include:
 Database system theory
 Database system lab
 system design and analysis (SDA) previously known as OOAD
