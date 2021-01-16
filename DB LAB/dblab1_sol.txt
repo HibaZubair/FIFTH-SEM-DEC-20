@@ -1,0 +1,14 @@
+Q1) select ename,job,sal from emp where (job='CLERK' OR job='ANALYST') and (sal!=1000 and sal!=3000 and sal!=5000);
+Q2) select EMPNO, ENAME, JOB, SAL from EMP ORDER BY SAL desc;
+Q3) select avg(sal) from emp;
+Q4) select ename,deptno,hiredate from emp order by deptno asc, hiredate desc;
+Q5) select BETWEEN '01-JAN-81' AND '30-JUN-81';
+Q6)  select * from emp order by hiredate;  
+Q7)select count(distinct job) as jobtitles from emp;
+Q8) select min(sal), max(sal) from emp;
+Q9) select sum(sal) from emp e,dept d where e.deptno=d.deptno AND d.dname='SALES';
+Q10) select max(sal)-min(sal) from emp;
+Q11) select * FROM EMP WHERE    ENAME LIKE '__A%';
+Q12) select count(sal)from emp where sal>2000;
+Q13) select count(distinct ename), sum(sal) from emp where job='SALESMAN';
+K181361-DB lab 1.txt

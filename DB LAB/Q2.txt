@@ -1,0 +1,78 @@
+hiba zubair k181361
+q2
+----------------------------- 
+
+
+create table tab1 (
+tno Number
+);
+select * from tab1;
+
+create table t_log (
+t_count Number
+);
+select * from t_log;
+
+
+set serveroutput on;
+create or replace procedure p1
+as
+begin 
+    declare
+    i NUMBER := 1;
+begin
+    loop
+    insert into tab1 values (i);
+    i := i+1;
+    exit when i>100;  
+    end Loop;
+    end;
+end;
+
+
+select * from tab1;
+
+
+
+set serveroutput on;
+create or replace procedure p2
+as
+begin
+declare
+      a tab1%rowtype;
+      cursor point is select * from tab1;
+begin
+    open point;          
+    loop
+         fetch point into a;
+         Exit when point%notfound;     
+        insert into t_log values(a.tno*5);
+    end Loop;
+    close point;
+end;
+end;
+
+set transaction isolation level read committed;
+
+
+set serveroutput on;
+declare
+pragma autonomous_transaction;
+begin
+begin
+p1;
+end;
+commit;
+end;
+
+declare
+pragma autonomous_transaction;
+begin
+begin
+p2;
+end;
+commit;
+end;
+select * from t_log;
+
+

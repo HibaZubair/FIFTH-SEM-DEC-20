@@ -1,0 +1,157 @@
+show dbs
+db
+use test1
+db
+use 5B_test
+db
+db.user.insert({"NAME":"HIBA","CITY":"KHI","PHONE":467246327})
+db.user.find({})
+db.dropDatabase()
+db.createCollection("mycollection1")
+db.mycollection1.drop()
+db.createCollection("student")
+db.student.insert({"NAME":"HIBA","CITY":"KHI","PHONE":467246327,"MARKS":88})
+db.student.insertOne({"NAME":"Ali","CITY":"LAH","PHONE":4444444,"MARKS":56})
+db.student.insertOne({"NAME":77777,"CITY":"LAH","PHONE":4444444,"MARKS":56})
+db.student.find()
+db.student.insertMany(
+    [{"NAME":"Zain","CITY":"KHI","PHONE":55555,"MARKS":45},
+    {"NAME":"Faisal","CITY":"SAK","PHONE":77777,"MARKS":66},
+    {"NAME":"Asma","CITY":"ISL","PHONE":888888,"MARKS":87},
+    {"NAME":"Safia","CITY":"SAK","PHONE":4888888888,"MARKS":55}
+    ]
+    )
+db.createCollection("datatypes")   
+db.datatypes.insert({
+    "NAME":"Aslam",
+    "MOBILE":9999999,
+    "DOJ":Date(),
+    "SALARY":45000.00,
+    "ROLES":["STAFF","SOFTWARE","HR"],
+    "ADDRESS":{
+            "CITY":"KHI",
+            "ZIP":999,
+            "COUNTRY":"PAK"},
+            "isAdmin":false,
+            "DOR":null})
+db.datatypes.find()            
+db.student.find()    
+db.student.find({})      
+db.student.findOne({})   
+db.student.find({"CITY":"KHI"}) 
+db.student.find({"CITY":"KHI","MARKS":88}) 
+db.student.find({},{"NAME":1})  
+db.student.find({},{"NAME":1,"MARKS":1})  
+db.student.find({},{"NAME":1,"CITY":0,"_id":0}) 
+//IN,<,>!=
+db.student.find({"CITY":{$in:["KHI","LAH","ABC"]}})
+db.student.find({"MARKS":{$lt:50}})
+db.student.find({}) 
+db.student.find({"MARKS":{$lte:55}})
+db.student.find({"MARKS":{$gt:50}})
+db.student.find({"MARKS":{$gte:66}})
+db.student.find({"MARKS":{$ne:66}})
+
+//And or
+db.student.find({$or:[{"MARKS":88},{"CITY":"KHI"}]})
+db.student.find({$and:[{"MARKS":88},{"CITY":"KHI"}]})
+db.student.find({"MARKS":88,"CITY":"KHI"})//AND
+
+//sort,limit,skip
+db.student.find({})
+db.student.find({}).limit(3)
+db.student.find({}).sort({"NAME":1})
+db.student.find({}).sort({"NAME":-1})
+db.student.find({}).skip(3)
+db.student.find({},{"NAME":1,"MARKS":1,"_id":0}).sort({"MARKS":-1})
+db.student.find({"MARKS":{$gt:50}},{"NAME":1,"MARKS":1,"_id":0}).sort({"MARKS":-1})
+db.student.find({"MARKS":{$gt:50}},{"NAME":1,"MARKS":1,"_id":0}).sort({"MARKS":-1}).limit(3)
+db.student.find({"MARKS":{$gt:50}},{"NAME":1,"MARKS":1,"_id":0}).sort({"MARKS":-1}).limit(3).skip(1)
+db.student.find({}) 
+//update
+db.student.update({"CITY":"KHI"},{$set:{"PHONE":222222222}})
+db.student.updateOne({"CITY":"KHI"},{$set:{"PHONE":33333}})
+db.student.updateMany({"CITY":"KHI"},{$set:{"PHONE":222222222}})
+db.student.update({"CITY":"KHI"},{$set:{"PHONE":44444444}},{"multi":true})
+
+//delete
+db.student.find({}) 
+db.student.remove({})
+db.student.remove({"CITY":"KHI"})
+db.student.remove({"CITY":"SAK"},1)
+
+//
+db.student.find({}) 
+db.student.count() 
+db.student.distinct("CITY")
+db.student.renameCollection("Human")
+db.Human.find({}) 
+db.getCollectionNames()
+db.getName()
+db.version()
+db.Human.replaceOne({"NAME":"Asma"},{"MARKS":78})
+//
+db.Human.ensureIndex({"NAME":1})
+db.Human.dropIndex({"NAME":1})
+//
+db.Human.aggregate([{$group:{_id:"$CITY",TotalCity:{$sum:1}}}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+  
+    
+    
+
+
+
+
+

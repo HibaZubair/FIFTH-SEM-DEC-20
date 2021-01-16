@@ -1,0 +1,31 @@
+Hiba Zubair K181361
+Question 1
+-----------------------------------------------------------
+
+CREATE TABLE (id int not null primary key, s varchar(40));
+
+INSERT INTO T VALUES (12,'hiba');
+INSERT INTO T VALUES (13,'muneeb');
+INSERT INTO T VALUES (14,'taha');
+INSERT INTO T VALUES (15,'ahmed');
+INSERT INTO T VALUES (16,'zoya');
+
+SELECT * FROM T;
+
+ROLLBACK;
+
+SELECT * FROM T;
+
+SET AUTOCOMMIT on;
+
+INSERT INTO T VALUES (12,'hiba');
+INSERT INTO T VALUES (13,'muneeb');
+INSERT INTO T VALUES (14,'taha');
+INSERT INTO T VALUES (15,'ahmed');
+INSERT INTO T VALUES (16,'zoya');
+
+SELECT * FROM T;
+
+ROLLBACK;
+
+SELECT * FROM T;
